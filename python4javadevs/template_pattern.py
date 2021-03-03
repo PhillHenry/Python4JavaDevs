@@ -49,7 +49,7 @@ if __name__ == "__main__":
     b = ClassB()
     b.do_template()
 
-    parent = Parent() # blows up in Python 3.6.9
+    parent = Parent()  # blows up in Python 3.6.9
     parent.do_template()
     parent.template_method()
 
