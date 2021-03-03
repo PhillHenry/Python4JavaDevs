@@ -7,13 +7,13 @@ class MyIterable(tuple):
         self.xs = xs
 
     def __next__(self):
-        x = self.xs[self.index]
+        next_x = self.xs[self.index]
         self.index = 1 + self.index
-        return x
+        return next_x
 
 
 if __name__ == "__main__":
-    xs = MyIterable([1,2,3,4])
+    xs = MyIterable([1, 2, 3, 4])
     for x in xs:
         print(x)
     print("fin")
