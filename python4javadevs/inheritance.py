@@ -8,10 +8,10 @@ class ParentB:
         log("ParentB: init")
 
 
-class BaseA(ParentA):
+class ClassA(ParentA):
     def __init__(self):
         log("BaseA: pre super()")
-        super(BaseA, self).__init__()
+        super(ClassA, self).__init__()
         log("BaseA: post super()")
 
 
@@ -39,7 +39,7 @@ def print_order_of_resolution_for(c):
 
 if __name__ == "__main__":
     print("Creating an object of the base class:")
-    a = BaseA()
+    a = ClassA()
     # "Python will try to maintain the order in which each class appears on the inheritance list, starting with the child class itself.
     # ... if Python cannot find a coherent method resolution order, it'll raise an exception, instead of falling back to behavior which might surprise the user.
     # https://stackoverflow.com/questions/3277367/how-does-pythons-super-work-with-multiple-inheritance
