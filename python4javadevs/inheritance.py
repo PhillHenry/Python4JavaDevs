@@ -10,7 +10,8 @@ class ParentA:
     # https://stackoverflow.com/questions/674304/why-is-init-always-called-after-new
     def __new__(cls):
         print("NEW")
-        return super(ParentA, cls).__new__(cls)
+        # return super(ParentA, cls).__new__(cls)
+        return super().__new__(cls)  # super() is simpler in Python 3
 
     def __init__(self):
         log("ParentA: init")
@@ -24,20 +25,23 @@ class ParentB:
 class ClassA(ParentA):
     def __init__(self):
         log("BaseA: pre super()")
-        super(ClassA, self).__init__()
+        # super(ClassA, self).__init__()
+        super().__init__()  # super() is simpler in Python 3
         log("BaseA: post super()")
 
 
 class MixinAThenB(ParentA, ParentB):
     def __init__(self):
         log("Mixin: pre super()")
-        super(MixinAThenB, self).__init__()
+        # super(MixinAThenB, self).__init__()
+        super().__init__()  # super() is simpler in Python 3
 
 
 class MixinBThenA(ParentB, ParentA):
     def __init__(self):
         log("Mixin: pre super()")
-        super(MixinBThenA, self).__init__()
+        # super(MixinBThenA, self).__init__()
+        super().__init__()  # super() is simpler in Python 3
 
 
 def log(msg):

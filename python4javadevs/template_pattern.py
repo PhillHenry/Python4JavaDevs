@@ -20,7 +20,8 @@ class Parent(ABC):
 class ClassA(Parent):
 
     def __init__(self):
-        super(ClassA, self).__init__()
+        # super(ClassA, self).__init__()
+        super().__init__()  # super() is simpler in Python 3
 
     def template_method(self):
         return "ClassA.template_method"
@@ -29,7 +30,8 @@ class ClassA(Parent):
 class ClassB(Parent):
 
     def __init__(self):
-        super(ClassB, self).__init__()
+        # super(ClassB, self).__init__()
+        super().__init__()  # super() is simpler in Python 3
 
     def template_method(self):
         return "ClassB.template_method"
@@ -39,7 +41,8 @@ class DoesNotInstantiateThanksToABC(Parent):
 
     def __init__(self):
         print("DoesNotInstantiateThanksToABC: __init__")
-        super(DoesNotInstantiateThanksToABC, self).__init__()
+        # super(DoesNotInstantiateThanksToABC, self).__init__()
+        super().__init__()  # super() is simpler in Python 3
 
 
 if __name__ == "__main__":
