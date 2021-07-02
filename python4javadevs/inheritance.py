@@ -41,6 +41,7 @@ class MixinBThenA(ParentB, ParentA):
     def __init__(self):
         log("Mixin: pre super()")
         # super(MixinBThenA, self).__init__()
+        # https://stackoverflow.com/questions/52140360/typeerror-supertype-obj-obj-must-be-an-instance-or-subtype-of-type
         super().__init__()  # super() is simpler in Python 3
 
 
