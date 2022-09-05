@@ -42,6 +42,7 @@ class MixinAThenB(ParentA, ParentB):
         log("Mixin: pre super()")
         # super(MixinAThenB, self).__init__()
         super().__init__()  # super() is simpler in Python 3
+        ParentB.__init__(self)
 
 
 class MixinBThenA(ParentB, ParentA):
@@ -50,6 +51,7 @@ class MixinBThenA(ParentB, ParentA):
         # super(MixinBThenA, self).__init__()
         # https://stackoverflow.com/questions/52140360/typeerror-supertype-obj-obj-must-be-an-instance-or-subtype-of-type
         super().__init__()  # super() is simpler in Python 3
+        ParentA.__init__(self)
 
 
 class ClassWithField(ParentC):
