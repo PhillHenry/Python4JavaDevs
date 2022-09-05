@@ -22,6 +22,13 @@ class ParentB:
         log("ParentB: init")
 
 
+class ParentC:
+    # def __init__(self, a_field):
+    #     log(f"ParentC: init {a_field}")
+    def __init__(self):
+        log(f"ParentC: init")
+
+
 class ClassA(ParentA):
     def __init__(self):
         log("BaseA: pre super()")
@@ -43,6 +50,18 @@ class MixinBThenA(ParentB, ParentA):
         # super(MixinBThenA, self).__init__()
         # https://stackoverflow.com/questions/52140360/typeerror-supertype-obj-obj-must-be-an-instance-or-subtype-of-type
         super().__init__()  # super() is simpler in Python 3
+
+
+class ClassWithField(ParentC):
+    def __init__(self, a_field="constructor_field"):
+        super(ClassWithField, self).__init__()
+        log(f"ClassWithField {a_field}")
+        kwargs = self._input_kwargs
+        self.setParams(**kwargs)
+
+    def setParams(self, a_field="setParams field"):
+        kwargs = self._input_kwargs
+        return self._set(**kwargs)
 
 
 def log(msg):
@@ -67,3 +86,6 @@ if __name__ == "__main__":
     mixed = MixinBThenA()
 
     print_order_of_resolution_for(MixinBThenA)
+
+    with_field = ClassWithField(a_field="a field")
+    print(f"with_field.a_field = {with_field.a_field}")
