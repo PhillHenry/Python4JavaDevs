@@ -1,5 +1,5 @@
 class ParentA:
-
+    print("ParentA")
     # Use __new__ when you need to control the creation of a new instance.
     #
     # Use __init__ when you need to control initialization of a new instance.
@@ -18,11 +18,13 @@ class ParentA:
 
 
 class ParentB:
+    print("ParentB")
     def __init__(self):
         log("ParentB: init")
 
 
 class ParentC:
+    print("ParentC")
     # def __init__(self, a_field):
     #     log(f"ParentC: init {a_field}")
     def __init__(self):
@@ -30,6 +32,7 @@ class ParentC:
 
 
 class ClassA(ParentA):
+    print("ClassA")
     def __init__(self):
         log("BaseA: pre super()")
         # super(ClassA, self).__init__()
@@ -38,6 +41,7 @@ class ClassA(ParentA):
 
 
 class MixinAThenB(ParentA, ParentB):
+    print("MixinAThenB")
     def __init__(self):
         log("Mixin: pre super()")
         # super(MixinAThenB, self).__init__()
@@ -46,6 +50,7 @@ class MixinAThenB(ParentA, ParentB):
 
 
 class MixinBThenA(ParentB, ParentA):
+    print("MixinBThenA")
     def __init__(self):
         log("Mixin: pre super()")
         # super(MixinBThenA, self).__init__()
@@ -55,6 +60,7 @@ class MixinBThenA(ParentB, ParentA):
 
 
 class ClassWithField(ParentC):
+    print("ClassWithField")
     def __init__(self, a_field="constructor_field"):
         super(ClassWithField, self).__init__()
         log(f"ClassWithField {a_field}")
