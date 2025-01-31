@@ -13,11 +13,11 @@ def proxy_fn(model):
     model.fn_to_proxy()
 
 
-def main():
+def create_and_invoke_proxy():
     model = MyClass()
     model.proxied = types.MethodType(proxy_fn, model)
     model.proxied()
 
 
 if __name__ == "__main__":
-    main()
+    create_and_invoke_proxy()
